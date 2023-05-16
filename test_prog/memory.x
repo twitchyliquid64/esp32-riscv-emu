@@ -1,0 +1,6 @@
+MEMORY
+{
+  /* NOTE K = KiBi = 1024 bytes */
+  FLASH : ORIGIN = 0x400, LENGTH = 16K
+  RAM : ORIGIN = 0x0, LENGTH = 1K
+}

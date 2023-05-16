@@ -1,0 +1,25 @@
+[target.riscv32i-unknown-none-elf]
+rustflags = [
+    "-C", "target-cpu=generic",
+
+    # Disable compression
+    "-C", "target-feature=-c",
+    
+    # Size optimizations
+    "-C", "panic=abort",
+    "-C", "debuginfo=0",
+    "-C", "opt-level=z",
+
+    # LTO helps reduce binary size
+    "-C", "embed-bitcode=yes",
+    "-C", "lto=yes",
+
+    # Linker flags
+    "-C", "link-args=-Tlink.x --Bstatic --discard-all --strip-all --lto-O3 --lto-whole-program-visibility",
+
+    # Required to link with `lld`
+    # "-Z", "no-unique-section-names=yes",
+]
+
+[build]
+target = "riscv32i-unknown-none-elf"

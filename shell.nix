@@ -27,6 +27,9 @@ in pkgs.mkShell {
   buildInputs = [
     rust
     pkgs.gcc-arm-embedded
+    pkgs.arduino-cli
+    pkgs.go_1_19
+
     my-python
   ];
   LIBCLANG_PATH = "${pkgs.llvmPackages.libclang}/lib";
